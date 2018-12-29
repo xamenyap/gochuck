@@ -1,5 +1,5 @@
 # Gochuck client
-A client written in Go for calling random Chuck Norris facts provided by https://api.chucknorris.io/
+A client written in Go for getting random Chuck Norris facts provided by https://api.chucknorris.io/
 
 ### Installing
 - Prerequisites: Go version 1.11 or higher
