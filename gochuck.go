@@ -19,10 +19,13 @@ func init() {
 
 var client *http.Client
 
+// SetClient allows injecting an *http.Client if needed,
+// http.DefaultClient is used by default.
 func SetClient(c *http.Client) {
 	client = c
 }
 
+// Fact describes a chuck norris fact.
 type Fact struct {
 	IconUrl  string   `json:"icon_url"`
 	Id       string   `json:"id"`
@@ -31,11 +34,13 @@ type Fact struct {
 	Category []string `json:"category"`
 }
 
+// FactCollection is a collection of one or more facts with a total number.
 type FactCollection struct {
 	Total   int    `json:"total"`
 	Results []Fact `json:"result"`
 }
 
+// GetRandom returns a random fact.
 func GetRandom() (*Fact, error) {
 	reqUrl := baseUrl + randomEndpoint
 	req, _ := http.NewRequest("GET", reqUrl, nil)
@@ -55,6 +60,7 @@ func GetRandom() (*Fact, error) {
 	return &fact, nil
 }
 
+// GetCategories returns a list of fact categories.
 func GetCategories() ([]string, error) {
 	reqUrl := baseUrl + categoriesEndpoint
 	req, _ := http.NewRequest("GET", reqUrl, nil)
@@ -74,6 +80,7 @@ func GetCategories() ([]string, error) {
 	return categories, nil
 }
 
+// GetByQuery returns a fact with a text query.
 func GetByQuery(query string) (*FactCollection, error) {
 	reqUrl := baseUrl + searchEndpoint
 	req, _ := http.NewRequest("GET", reqUrl, nil)
@@ -97,6 +104,7 @@ func GetByQuery(query string) (*FactCollection, error) {
 	return &collection, nil
 }
 
+// GetRandomByCategory returns a random fact by category.
 func GetRandomByCategory(category string) (*Fact, error) {
 	reqUrl := baseUrl + randomEndpoint
 	req, _ := http.NewRequest("GET", reqUrl, nil)
