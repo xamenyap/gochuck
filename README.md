@@ -2,7 +2,7 @@
 A client written in Go for getting random Chuck Norris facts provided by https://api.chucknorris.io/
 
 ### Installing
-- Prerequisites: Go version 1.11 or higher
+- Prerequisites: Go version 1.16 or higher
 - Simply run: `go get github.com/xamenyap/gochuck` in your console
 
 ### Examples
