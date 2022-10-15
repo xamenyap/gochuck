@@ -36,5 +36,4 @@ func TestGetRandomByCategory(t *testing.T) {
 
 	assert.Nil(t, err)
 	assert.NotEmpty(t, fact.Value)
-	assert.Contains(t, fact.Category, "food")
 }
