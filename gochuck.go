@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"net/http"
 	"net/url"
-	"time"
 )
 
 const (
@@ -14,7 +13,15 @@ const (
 	searchEndpoint     = "/jokes/search"
 )
 
-var client = http.Client{Timeout: 5 * time.Second}
+func init() {
+	SetClient(http.DefaultClient)
+}
+
+var client *http.Client
+
+func SetClient(c *http.Client) {
+	client = c
+}
 
 type Fact struct {
 	IconUrl  string   `json:"icon_url"`
