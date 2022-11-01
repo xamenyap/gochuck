@@ -6,7 +6,7 @@ A client written in Go for getting random Chuck Norris facts provided by https:/
 - Simply run: `go get github.com/xamenyap/gochuck` in your console
 
 ### Examples
-```
+```golang
 // get a random chuck norris fact
 fact, _ := gochuck.GetRandom()
 
